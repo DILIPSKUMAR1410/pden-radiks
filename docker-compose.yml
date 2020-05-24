@@ -10,7 +10,12 @@ services:
     restart: unless-stopped
     networks:
       - app-network
-
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
   webserver:
     image: nginx:latest
     container_name: webserver
