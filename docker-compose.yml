@@ -11,7 +11,7 @@ services:
     networks:
       - app-network
 
- webserver:
+  webserver:
     image: nginx:latest
     container_name: webserver
     restart: unless-stopped
@@ -47,13 +47,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/dilip/pden-radiks/public
+      device: /home/ubuntu/pden-radiks/public
       o: bind
   dhparam:
     driver: local
     driver_opts:
       type: none
-      device: /home/sammy/node_project/dhparam/
+      device: /home/ubuntu/pden-radiks/dhparam/
       o: bind
 
 networks:
