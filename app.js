@@ -1,7 +1,6 @@
 var express = require("express");
-var expressWS = require("express-ws");
-var cors = require('cors')
-
+const app = express();
+var expressWS = require("express-ws")(app);
 // var path = require('path');
 // var cookieParser = require('cookie-parser');
 // var logger = require('morgan');
@@ -11,15 +10,12 @@ var cors = require('cors')
 
 const { setup } = require("radiks-server");
 
-const app = express();
-app.use(cors())
-
 setup().then((RadiksController) => {
   app.use("/radiks", RadiksController);
 });
 
-expressWS(app);
-
+app.listen(5000);
+// expressWS(app);
 // app.use(logger('dev'));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
